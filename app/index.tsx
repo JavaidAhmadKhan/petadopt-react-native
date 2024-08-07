@@ -1,6 +1,7 @@
-import { View, SafeAreaView, Image, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { View, SafeAreaView, Image, StyleSheet, Text } from 'react-native';
 
-import Colors from "../constants/Colors";
+import Colors from '../constants/Colors';
 
 export default function Index() {
   return (
@@ -8,13 +9,13 @@ export default function Index() {
       <View>
         <Image
           style={styles.loginImg}
-          source={require("../assets/images/login.png")}
+          source={require('../assets/images/login.png')}
         />
       </View>
       <View style={styles.textImgContainer}>
         <Text style={styles.textImg}>Ready to make a new friend?</Text>
         <Text style={styles.imgPara}>
-          Let's adopt the pet which you like and make there life happy again
+          Let's adopt the pet which you like and make their life happy again
         </Text>
       </View>
     </SafeAreaView>
@@ -23,23 +24,23 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   loginImg: {
-    width: "100",
+    width: '100%',
     height: 500,
   },
   textImgContainer: {
     padding: 20,
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
   imgPara: {
-    fontFamily: "outfit",
+    fontFamily: 'outfit',
     fontSize: 18,
-    textAlign: "center",
+    textAlign: 'center',
     color: Colors.GRAY,
   },
   textImg: {
-    fontFamily: "outfit-bold",
+    fontFamily: 'outfit-bold',
     fontSize: 30,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
