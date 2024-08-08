@@ -25,7 +25,7 @@ export default function LoginScreen() {
   const onPress = React.useCallback(async () => {
     try {
       const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
-        redirectUrl: Linking.createURL('/home', { scheme: 'myapp' }),
+        redirectUrl: Linking.createURL('/(tabs)/home', { scheme: 'myapp' }),
       })
 
       if (createdSessionId) {
