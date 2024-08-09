@@ -10,7 +10,7 @@ interface CategoryItem {
     // Add other properties if needed
 }
 
-export default function Category() {
+export default function Category({ category }: any) {
     const [categoryList, setCategoryList] = useState<CategoryItem[]>([]);
     const [selectCategory, setSelectedCatgory] = useState('Cats');
 
@@ -33,7 +33,10 @@ export default function Category() {
                 data={categoryList}
                 numColumns={4}
                 renderItem={({ item, index }) => (
-                    <TouchableOpacity onPress={() => setSelectedCatgory(item.name)} style={{ flex: 1 }}>
+                    <TouchableOpacity onPress={() => {
+                        setSelectedCatgory(item.name)
+                        category(item.name)
+                    }} style={{ flex: 1 }}>
                         <View style={[styles.imgViewContainer, selectCategory == item.name && styles.selectedCategoryContainer]}>
                             <Image source={{ uri: item.imageUrl }} style={styles.categoryImage} />
                         </View>
