@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, StyleSheet, Dimensions } from 'react-native'
+import { View, FlatList, Image, StyleSheet, Dimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebaseconfig';
@@ -25,7 +25,7 @@ export default function Slider() {
     }
 
     return (
-        <View style={{ marginTop: 15}}>
+        <View style={{ marginTop: 15 }}>
             <FlatList
                 data={sliderList}
                 horizontal
@@ -44,6 +44,5 @@ const styles = StyleSheet.create({
         height: 180,
         borderRadius: 15,
         marginRight: 15,
-        objectFit: 'cover'
     }
 })
