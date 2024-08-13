@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Platform, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -10,9 +10,13 @@ import Colors from '@/constants/Colors';
 export default function Home() {
     return (
         <View style={styles.androidSafeArea}>
-            <Header />
-            <Slider />
-            <PetListCategory />
+            <ScrollView>
+                <Header />
+                <Slider />
+                <PetListCategory />
+                <View style={{ height: 120 }}></View>
+
+            </ScrollView>
             <TouchableOpacity style={styles.postContainer}>
                 <MaterialIcons name="pets" size={24} color={Colors.PRIMARY} />
                 <Text style={styles.postText}>Add New Pet

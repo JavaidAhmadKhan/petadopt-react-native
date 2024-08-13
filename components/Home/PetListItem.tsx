@@ -11,9 +11,8 @@ export default function PetListItem({ pet }: any) {
                 pathname: '/pet-details',
                 params: pet
             })}
-            style={styles.mainContainer}>
-
-            <View>
+            >
+            <View style={styles.mainContainer}>
                 <Image source={{ uri: pet?.imageUrl }} style={styles.img} />
                 <Text style={styles.petText}>{pet?.name}</Text>
                 <Text style={styles.petBreed}>{pet?.breed}</Text>
@@ -35,25 +34,25 @@ const styles = StyleSheet.create({
     petText:
     {
         fontFamily: 'outfit-medium',
-        fontSize: 18,
-        marginTop: 5
+        fontSize: 22,
+        marginTop: 10
     },
     petBreed: {
         color: Colors.GRAY,
         fontFamily: 'outfit-medium',
-        fontSize:14,
+        fontSize:18,
     },
     petAge: {
         color: Colors.PRIMARY,
         fontFamily: 'outfit',
         borderRadius: 10,
-        fontSize: 14
+        fontSize: 16
     },
     img: {
         width: 150,
-        height: 80,
+        height: 100,
         objectFit: 'cover',
-        borderRadius: 10,
+        borderRadius: 15,
     }
 }
 )

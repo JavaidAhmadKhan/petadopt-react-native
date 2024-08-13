@@ -1,4 +1,4 @@
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Category from './Category';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -46,7 +46,7 @@ export default function PetListCategory() {
         <View>
             <Category category={(value: string) => GetPetList(value)} />
             <FlatList
-                horizontal
+               horizontal
                 showsHorizontalScrollIndicator={false}
                 refreshing={loader}
                 onRefresh={() => GetPetList('Cats')}
