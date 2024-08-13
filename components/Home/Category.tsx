@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, Image, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebaseconfig';
@@ -50,7 +50,7 @@ export default function Category({ category }: any) {
 
 const styles = StyleSheet.create({
     mainContainer: {
-        marginTop: 20
+        marginTop: 20,
     },
     categoryText: {
         fontFamily: 'outfit-medium',

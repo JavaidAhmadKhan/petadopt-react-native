@@ -18,18 +18,19 @@ export const useWarmUpBrowser = () => {
 }
 
 WebBrowser.maybeCompleteAuthSession()
+
 export default function LoginScreen() {
-  useWarmUpBrowser();
-  const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' });
+  useWarmUpBrowser()
+
+  const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' })
 
   const onPress = React.useCallback(async () => {
     try {
-      const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
-        redirectUrl: Linking.createURL('/(tabs)/home', { scheme: 'myapp' }),
+      const { createdSessionId } = await startOAuthFlow({
+        redirectUrl: Linking.createURL('/home', { scheme: 'myapp' }),
       })
 
       if (createdSessionId) {
-        setActive!({ session: createdSessionId })
       } else {
         // Use signIn or signUp for next steps such as MFA
       }

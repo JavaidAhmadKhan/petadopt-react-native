@@ -1,6 +1,5 @@
-import { View, Text, StyleSheet, Platform, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Platform, TouchableOpacity, SafeAreaView } from 'react-native'
 import React from 'react'
-import { useUser } from '@clerk/clerk-expo';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import Header from '@/components/Home/Header';
@@ -9,7 +8,6 @@ import PetListCategory from '@/components/Home/PetListCategory';
 import Colors from '@/constants/Colors';
 
 export default function Home() {
-    const { user } = useUser()
     return (
         <View style={styles.androidSafeArea}>
             <Header />
@@ -23,13 +21,14 @@ export default function Home() {
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     androidSafeArea: {
+        paddingHorizontal: 10,
         flex: 1,
-        padding: 20,
-        backgroundColor: 'gray',
-        paddingTop: Platform.OS === 'android' ? 50 : 0
+        backgroundColor: Colors.GRAY,
+        paddingTop: Platform.OS === 'android' ? 50 : 50,
+
+
     },
     postContainer:
     {
@@ -44,7 +43,14 @@ const styles = StyleSheet.create({
         borderColor: Colors.PRIMARY,
         borderRadius: 15,
         borderStyle: 'dashed',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        margin: 20,
+        zIndex: 99,
+
     },
     postText: {
         fontFamily: 'outfit-medium',

@@ -5,6 +5,8 @@ import { Redirect, useRootNavigationState } from 'expo-router';
 
 export default function Index() {
     const { user } = useUser();
+    // console.log(user, 'get some user data');
+    
     const rootNavigationState = useRootNavigationState();
 
     useEffect(() => {
@@ -26,4 +28,5 @@ export default function Index() {
         </View>
     );
 }
+
 

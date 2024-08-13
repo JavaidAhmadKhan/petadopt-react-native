@@ -12,7 +12,7 @@ web-build/
 
 # Secret
 .env
-*.env
+*.env.local
 
 # macOS
 .DS_Store
