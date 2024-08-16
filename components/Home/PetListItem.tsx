@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Colors from '@/constants/Colors'
 import { useRouter } from 'expo-router'
+import MarkFav from '../MarkFav';
 
 export default function PetListItem({ pet }: any) {
     const router = useRouter();
@@ -11,7 +12,10 @@ export default function PetListItem({ pet }: any) {
                 pathname: '/pet-details',
                 params: pet
             })}
-            >
+        >
+            <View style={{ position: 'absolute', zIndex: 10, right: 10, top: 10, }}>
+                <MarkFav pet={pet} color={Colors.PRIMARY} />
+            </View>
             <View style={styles.mainContainer}>
                 <Image source={{ uri: pet?.imageUrl }} style={styles.img} />
                 <Text style={styles.petText}>{pet?.name}</Text>
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
     petBreed: {
         color: Colors.GRAY,
         fontFamily: 'outfit-medium',
-        fontSize:18,
+        fontSize: 18,
     },
     petAge: {
         color: Colors.PRIMARY,
