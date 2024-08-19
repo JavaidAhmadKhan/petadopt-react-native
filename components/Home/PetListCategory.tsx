@@ -46,7 +46,8 @@ export default function PetListCategory() {
         <View>
             <Category category={(value: string) => GetPetList(value)} />
             <FlatList
-               horizontal
+                numColumns={2}
+                showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 refreshing={loader}
                 onRefresh={() => GetPetList('Cats')}
