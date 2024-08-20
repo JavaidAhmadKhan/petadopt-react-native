@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Image, StyleSheet, Text, Pressable } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
-import * as Linking from 'expo-linking';
-import { useOAuth } from '@clerk/clerk-expo';
+import { View, Image, StyleSheet, Text, Pressable } from "react-native";
+import * as WebBrowser from "expo-web-browser";
+import * as Linking from "expo-linking";
+import { useOAuth } from "@clerk/clerk-expo";
 
 import Colors from "@/constants/Colors";
 
@@ -10,40 +10,40 @@ export const useWarmUpBrowser = () => {
   React.useEffect(() => {
     // Warm up the android browser to improve UX
     // https://docs.expo.dev/guides/authentication/#improving-user-experience
-    void WebBrowser.warmUpAsync()
+    void WebBrowser.warmUpAsync();
     return () => {
-      void WebBrowser.coolDownAsync()
-    }
-  }, [])
-}
+      void WebBrowser.coolDownAsync();
+    };
+  }, []);
+};
 
-WebBrowser.maybeCompleteAuthSession()
+WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginScreen() {
-  useWarmUpBrowser()
+  useWarmUpBrowser();
 
-  const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' })
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
 
   const onPress = React.useCallback(async () => {
     try {
       const { createdSessionId } = await startOAuthFlow({
-        redirectUrl: Linking.createURL('/home', { scheme: 'myapp' }),
-      })
+        redirectUrl: Linking.createURL("/home", { scheme: "myapp" }),
+      });
 
       if (createdSessionId) {
       } else {
         // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
-      console.error('OAuth error', err)
+      console.error("OAuth error", err);
     }
-  }, [])
+  }, []);
   return (
-    <View style={{ backgroundColor: Colors.WHITE, height: '100%' }}>
+    <View style={{ backgroundColor: Colors.WHITE, height: "100%" }}>
       <View>
         <Image
           style={styles.loginImg}
-          source={require('../../assets/images/login.png')}
+          source={require("../../assets/images/login.png")}
         />
       </View>
       <View style={styles.textImgContainer}>
@@ -56,42 +56,42 @@ export default function LoginScreen() {
         </Pressable>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   loginImg: {
-    width: '100%',
+    width: "100%",
     height: 500,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
   textImgContainer: {
     padding: 20,
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   imgPara: {
-    fontFamily: 'outfit',
+    fontFamily: "outfit",
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     color: Colors.GRAY,
   },
   textImg: {
-    fontFamily: 'outfit-bold',
+    fontFamily: "outfit-bold",
     fontSize: 30,
-    textAlign: 'center',
+    textAlign: "center",
   },
   loginButton: {
     padding: 14,
     marginTop: 100,
     backgroundColor: Colors.PRIMARY,
-    width: '100%',
-    borderRadius: 14
+    width: "100%",
+    borderRadius: 14,
   },
   loginButtonText: {
-    fontFamily: 'outfit-medium',
+    fontFamily: "outfit-medium",
     fontSize: 20,
-    color: 'white',
-    textAlign: 'center',
-  }
+    color: "white",
+    textAlign: "center",
+  },
 });
