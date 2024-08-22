@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
-import { Redirect, useRootNavigationState } from "expo-router";
-
+import { Link, Redirect, useRootNavigationState } from "expo-router";
 export default function Index() {
   const { user } = useUser();
   console.log(user, "get some user data");
@@ -14,7 +13,7 @@ export default function Index() {
   }, []);
 
   const CheckNavLoaded = () => {
-    if (!rootNavigationState?.key) return null;
+    if (!rootNavigationState.key) return null;
   };
 
   return (

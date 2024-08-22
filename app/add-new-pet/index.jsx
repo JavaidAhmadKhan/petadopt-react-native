@@ -27,10 +27,10 @@ export default function AddNewPet() {
           borderColor: Colors.GRAY,
         }}
       />
-      {/* <View>
-                <Text>Pet Name *</Text>
-                <TextInput placeholder='Pet Name' />
-            </View> */}
+      <View>
+        <Text>Pet Name *</Text>
+        <TextInput placeholder="Pet Name" />
+      </View>
     </View>
   );
 }

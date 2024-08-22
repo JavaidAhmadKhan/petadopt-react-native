@@ -5,3 +5,4 @@ export default {
   SECONDARY: '#4faaff',
   LIGHT_PRIMARY: '#fff1c9',
 }
+
