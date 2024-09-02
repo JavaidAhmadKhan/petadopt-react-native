@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
-import { Link, Redirect, useRootNavigationState } from "expo-router";
+import { Redirect, useRootNavigationState } from "expo-router";
 export default function Index() {
   const { user } = useUser();
-  console.log(user, "get some user data");
-
   const rootNavigationState = useRootNavigationState();
 
   useEffect(() => {

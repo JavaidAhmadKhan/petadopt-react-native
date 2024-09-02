@@ -10,7 +10,7 @@ export default function PetListCategory() {
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    GetPetList("Cats");
+    GetPetList("Dogs");
   }, []);
 
   const GetPetList = async (category) => {
@@ -46,7 +46,7 @@ export default function PetListCategory() {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         refreshing={loader}
-        onRefresh={() => GetPetList("Cats")}
+        onRefresh={() => GetPetList("Dogs")}
         data={petList}
         renderItem={({ item }) => <PetListItem pet={item} />}
         keyExtractor={(item, index) => index.toString()}

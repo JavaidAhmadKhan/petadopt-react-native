@@ -13,7 +13,7 @@ import Colors from "@/constants/Colors";
 
 export default function Category({ category }) {
   const [categoryList, setCategoryList] = useState([]);
-  const [selectCategory, setSelectedCatgory] = useState("Cats");
+  const [selectCategory, setSelectedCatgory] = useState("Dogs");
 
   useEffect(() => {
     GetCategories();

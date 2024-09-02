@@ -11,7 +11,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 import Header from "@/components/Home/Header";
 import Slider from "@/components/Home/Slider";
-import PetListCategory from "@/components/Home/PetListCategory";
+import PetListByCategory from "@/components/Home/PetListByCategory";
 import Colors from "@/constants/Colors";
 import { Link } from "expo-router";
 
@@ -21,7 +21,7 @@ export default function Home() {
       <ScrollView>
         <Header />
         <Slider />
-        <PetListCategory />
+        <PetListByCategory />
         <View style={{ height: 120 }}></View>
       </ScrollView>
       <TouchableOpacity style={styles.postContainer}>
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     gap: 10,
     marginTop: 20,
     padding: 20,
-
     backgroundColor: Colors.LIGHT_PRIMARY,
     borderWidth: 1,
     borderColor: Colors.PRIMARY,
