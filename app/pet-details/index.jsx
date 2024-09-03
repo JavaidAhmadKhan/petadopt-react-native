@@ -72,6 +72,7 @@ export default function PetDetails() {
             name: pet?.username,
           },
         ],
+        userIds: [user?.primaryEmailAddress?.emailAddress, pet?.email],
       });
       router.push({
         pathname: "/chat",

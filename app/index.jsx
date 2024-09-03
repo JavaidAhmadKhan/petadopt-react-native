@@ -8,10 +8,10 @@ export default function Index() {
 
   useEffect(() => {
     CheckNavLoaded();
-  }, []);
+  }, [rootNavigationState]);
 
   const CheckNavLoaded = () => {
-    if (!rootNavigationState.key) return null;
+    if (!rootNavigationState || !rootNavigationState.key) return null;
   };
 
   return (
@@ -26,3 +26,31 @@ export default function Index() {
     )
   );
 }
+
+// import React, { useEffect } from "react";
+// import { View } from "react-native";
+// import { useUser } from "@clerk/clerk-expo";
+// import { Redirect, useRootNavigationState } from "expo-router";
+
+// export default function Index() {
+//   const { user } = useUser();
+//   const rootNavigationState = useRootNavigationState();
+
+//   useEffect(() => {
+//     if (rootNavigationState.key) {
+//       // Only check navigation state if it's loaded
+//       CheckNavLoaded();
+//     }
+//   }, [rootNavigationState.key]);
+
+//   const CheckNavLoaded = () => {
+//     // If navigation is loaded and user exists, redirect to the home screen
+//     if (user) {
+//       return <Redirect href={"/(tabs)/home"} />;
+//     } else {
+//       return <Redirect href={"/login"} />;
+//     }
+//   };
+
+//   return <View style={{ flex: 1 }}>{CheckNavLoaded()}</View>;
+// }
