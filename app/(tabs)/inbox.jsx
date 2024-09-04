@@ -61,8 +61,8 @@ export default function Indox() {
         onRefresh={GetUserList}
         style={{ marginTop: 20 }}
         data={MapOtherUserList()}
-        renderItem={({ item, index }) => (
-          <UserItem userInfo={item} key={index} />
+        renderItem={({ item, id }) => (
+          <UserItem userInfo={item} key={id} />
         )}
       />
     </View>

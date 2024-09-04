@@ -1,5 +1,4 @@
-import { View, Text, Platform, StyleSheet } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { db } from "../../config/firebaseconfig";
 
@@ -47,12 +46,12 @@ export default function ChatScreen() {
     const docRef = doc(db, "Chat", params?.id);
     const docSnap = await getDoc(docRef);
     const result = docSnap.data();
-    console.log(result);
+    // console.log(result);
 
     const otherUser = result?.users.filter(
       (item) => item.email != user?.primaryEmailAddress?.emailAddress
     );
-    console.log(otherUser);
+    // console.log(otherUser);
     navigation.setOptions({
       headerTitle: otherUser[0]?.name,
     });

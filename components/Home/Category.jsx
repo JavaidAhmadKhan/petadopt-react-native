@@ -33,7 +33,7 @@ export default function Category({ category }) {
       <FlatList
         data={categoryList}
         numColumns={4}
-        renderItem={({ item, index }) => (
+        renderItem={({ item, id }) => (
           <TouchableOpacity
             onPress={() => {
               setSelectedCatgory(item.name);
@@ -42,6 +42,7 @@ export default function Category({ category }) {
             style={{ flex: 1 }}
           >
             <View
+              key={id}
               style={[
                 styles.imgViewContainer,
                 selectCategory == item.name && styles.selectedCategoryContainer,

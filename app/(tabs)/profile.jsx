@@ -23,18 +23,24 @@ export default function profile() {
     },
     {
       id: 2,
+      name: "My Post",
+      icon: "bookmark",
+      path: "/user-post",
+    },
+    {
+      id: 3,
       name: "Favorites",
       icon: "heart",
       path: "/(tabs)/favorite",
     },
     {
-      id: 3,
+      id: 4,
       name: "Inbox",
       icon: "chatbubble",
       path: "/(tabs)/inbox",
     },
     {
-      id: 4,
+      id: 5,
       name: "Logout",
       icon: "exit",
       path: "logout",
@@ -63,10 +69,10 @@ export default function profile() {
       </View>
       <FlatList
         data={Menu}
-        renderItem={({ item, index }) => (
+        renderItem={({ item, id }) => (
           <TouchableOpacity
             onPress={() => onPressMenu(item)}
-            key={index}
+            key={id}
             style={styles.iconsContainer}
           >
             <Ionicons

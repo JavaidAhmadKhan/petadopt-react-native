@@ -144,12 +144,8 @@ export default function AddNewPet() {
           }}
           style={styles.input}
         >
-          {categoryList.map((category, index) => (
-            <Picker.Item
-              key={index}
-              label={category.name}
-              value={category.name}
-            />
+          {categoryList.map((category, id) => (
+            <Picker.Item key={id} label={category.name} value={category.name} />
           ))}
         </Picker>
       </View>

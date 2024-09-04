@@ -34,7 +34,7 @@ export default function Favorite() {
     const q = query(collection(db, "Pets"), where("id", "in", favId_));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+      // console.log(doc.data());
       setFavPetList((prev) => [...prev, doc.data()]);
     });
     setLoadr(false);
@@ -50,9 +50,9 @@ export default function Favorite() {
         numColumns={2}
         onRefresh={GetFavPetIds}
         refreshing={loader}
-        renderItem={({ item, index }) => (
+        renderItem={({ item, id }) => (
           <View>
-            <PetListItem pet={item} />
+            <PetListItem pet={item} key={id} />
           </View>
         )}
       />

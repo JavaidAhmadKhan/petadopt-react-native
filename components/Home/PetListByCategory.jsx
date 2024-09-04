@@ -49,7 +49,7 @@ export default function PetListCategory() {
         onRefresh={() => GetPetList("Dogs")}
         data={petList}
         renderItem={({ item }) => <PetListItem pet={item} />}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item, id) => id.toString()}
       />
     </View>
   );
